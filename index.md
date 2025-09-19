@@ -1,4 +1,4 @@
-<!-- ---
+---
 title: Home
 layout: page
 ---
@@ -42,10 +42,10 @@ predict the snake type.
 This project aims to raise awareness about snakes found in Bangladesh.  
 It provides both **English and Bangla names** for easier understanding.  
 
-👉 Try the **[Snake Recognizer Tool](bangladeshi_snake_recognizer.html)** to upload a snake photo and identify it. -->
+👉 Try the **[Snake Recognizer Tool](bangladeshi_snake_recognizer.html)** to upload a snake photo and identify it.
 
 
----
+<!-- ---
 title: Home
 layout: page
 ---
@@ -124,4 +124,4 @@ It provides both **English and Bangla names** for easier understanding.
 
 👉 Try the **[Snake Recognizer Tool](bangladeshi_snake_recognizer.html)** to upload a snake photo and identify it.  
 
-</div>
+</div> -->
