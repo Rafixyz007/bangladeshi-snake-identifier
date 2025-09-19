@@ -11,6 +11,7 @@
     min-height: 100%;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
+    background: #000;
   }
 
   /* Full-page slideshow */
@@ -38,40 +39,80 @@
     opacity: 1;
   }
 
-  /* Glass content box for Gradio */
+  /* Glassy content box */
   .glass-content {
-    position: relative;
+    position: fixed;
+    top: 50%;
+    right: 50px;
+    transform: translateY(-50%);
     z-index: 2;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(15px);
+    background: rgba(0, 0, 0, 0.4); /* darker transparent */
+    backdrop-filter: blur(20px);
     border-radius: 15px;
     padding: 30px;
-    max-width: 500px;
-    margin: 50px auto;
+    width: 350px;
+    max-width: 90%;
     text-align: center;
     color: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  }
+
+  .glass-content h1 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #fff;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+    font-family: "Segoe UI", Verdana, sans-serif;
   }
 
   input[type="file"] {
-    margin: 20px 0;
+    margin: 10px 0;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  button {
+    margin: 10px 5px 0 5px;
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  button:hover {
+    background: rgba(255,255,255,0.4);
+    transform: scale(1.05);
   }
 
   #results img {
-    max-width: 90%;
-    margin-top: 20px;
+    max-width: 100%;
     border-radius: 10px;
+    margin-top: 10px;
   }
 
   #results p {
     font-weight: bold;
     font-size: 1.2em;
-    margin-top: 10px;
+    color: #fff;
+    text-shadow: 1.5px 1.5px 4px rgba(0,0,0,0.7);
+    font-family: "Segoe UI", Verdana, sans-serif;
   }
 
   /* Navigation dots */
   #dots {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 10px;
   }
 
   .dot {
@@ -108,6 +149,10 @@
 <div class="glass-content">
   <h1>Bangladeshi Snake Recognizer</h1>
   <input id="photo" type="file">
+  <div>
+    <button id="submitBtn">Submit</button>
+    <button id="clearBtn">Clear</button>
+  </div>
   <div id="results"></div>
   <div id="dots"></div>
 </div>
@@ -140,33 +185,47 @@ function showSlide(i) {
   updateDots();
 }
 
-// Auto-slide every 5 seconds
+// Auto-slide every 10 seconds
 setInterval(() => {
   showSlide(index + 1);
-}, 5000);
+}, 10000);
 
-// Initialize
+// Initialize slideshow
 showSlide(index);
 
 // --- Gradio prediction logic ---
 const photo = document.getElementById("photo");
 const results = document.getElementById("results");
+const submitBtn = document.getElementById("submitBtn");
+const clearBtn = document.getElementById("clearBtn");
+
+let reader;
+
+function handlePrediction() {
+  if (!reader) return;
+  loaded(reader);
+}
 
 async function loaded(reader) {
   const app = await client("https://rafix007-bangladeshi-snake-recognizer-02.hf.space/");
   const response = await app.predict("/predict", [reader.result]);
   const label = response?.data?.[0]?.label || response?.output?.[0] || "No label returned";
-
-  results.innerHTML = `<br/><img src="${reader.result}" width="500"><p>${label}</p>`;
+  results.innerHTML = `<br/><img src="${reader.result}" width="300"><p>${label}</p>`;
 }
 
-function read() {
-  const reader = new FileReader();
-  reader.addEventListener('load', () => loaded(reader));
+submitBtn.addEventListener("click", handlePrediction);
+
+clearBtn.addEventListener("click", () => {
+  results.innerHTML = "";
+  photo.value = "";
+  reader = null;
+});
+
+photo.addEventListener("input", () => {
+  reader = new FileReader();
+  reader.addEventListener('load', () => {});
   reader.readAsDataURL(photo.files[0]);
-}
-
-photo.addEventListener('input', read);
+});
 </script>
 
 </body>
