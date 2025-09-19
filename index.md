@@ -10,7 +10,7 @@ This project helps identify **17 types of snakes** found in Bangladesh and South
 
 You can:
 - 📖 Browse the list of snakes with **English & Bangla names**.  
-- 🖼️ Try the **[Snake Recognizer Tool](recognizer.html)** to upload a photo and predict the snake type.
+- 🖼️ Try the **[Snake Recognizer Tool](bangladeshi_snake_recognizer.html)** to upload a photo and predict the snake type.
 
 ---
 
