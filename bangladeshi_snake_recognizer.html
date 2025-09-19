@@ -207,7 +207,7 @@ function handlePrediction() {
 }
 
 async function loaded(reader) {
-  const app = await client("https://rafix007-bangladeshi-snake-recognizer-02.hf.space/");
+  const app = await client("https://rafix007-bangladeshi-snake-recognizer.hf.space/");
   const response = await app.predict("/predict", [reader.result]);
   const label = response?.data?.[0]?.label || response?.output?.[0] || "No label returned";
   results.innerHTML = `<br/><img src="${reader.result}" width="300"><p>${label}</p>`;
