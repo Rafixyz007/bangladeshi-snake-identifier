@@ -5,10 +5,12 @@
 
 <p>
   <img src="https://img.shields.io/badge/Project%20Status-Completed-green?style=flat-square">
-  <img src="https://img.shields.io/badge/Python-3.13-blue?style=flat-square">
-  <img src="https://img.shields.io/badge/FastAI-2.7.12-orange?style=flat-square">
-  <img src="https://img.shields.io/badge/Gradio-3.40.0-red?style=flat-square">
-  <img src="https://img.shields.io/badge/HuggingFace-Hosted-purple?style=flat-square">
+  <img src="https://img.shields.io/badge/Python-3.12.11-blue?style=flat-square">
+  <img src="https://img.shields.io/badge/FastAI-2.8.4-orange?style=flat-square">
+  <img src="https://img.shields.io/badge/Gradio-3.50.0-red?style=flat-square">
+  <a href="https://huggingface.co/spaces/Rafix007/Bangladeshi-Snake-Recognizer" target="_blank">
+    <img src="https://img.shields.io/badge/HuggingFace-Hosted-purple?style=flat-square">
+  </a>
   <img src="https://img.shields.io/badge/Colab-GPU-lightgrey?style=flat-square">
 </p>
 
