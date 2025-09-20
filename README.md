@@ -199,7 +199,7 @@ We trained three models using **FastAI** on **Google Colab with GPU**: **ResNet3
 
 ### 🖼 Example Prediction
 
-![Example Prediction](assets/images/prediction.png) 
+![Example Prediction](docs/assets/images/prediction.png) 
 *Prediction interface showing the detected snake species.*
 
 **Features:**  
