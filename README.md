@@ -25,7 +25,7 @@ A machine learning project to recognize **17 common snake species in Bangladesh*
 1. [📂 Data Collection](#-1-data-collection)  
 2. [📊 Data Preparation](#-2-data-preparation)  
 3. [🧹 Dataset Cleaning](#-3-dataset-cleaning)  
-4. [🏋️ Training the Snake Classifier](#4-training-the-snake-classifier)  
+4. [🏋️ Training the Snake Classifier](#%EF%B8%8F-4-training-the-snake-classifier)
    - [ResNet34](#41-resnet34)  
    - [EfficientNet-B0](#42-efficientnet-b0)  
    - [ResNet50](#43-resnet50)  
