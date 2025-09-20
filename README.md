@@ -257,13 +257,17 @@ This project is licensed under the **Apache License 2.0** – see the [LICENSE](
 ---
 
 ## About the Author
-**Md. Shakhawat Hossain**
+**Md. Shakhawat Hossain**  
 
-An aspiring Data Scientist passionate about leveraging data to solve complex problems and build impactful dashboards. This project showcases my foundational skills in data collection, cleaning, and visualization.
+I am a Machine Learning and Data Science enthusiast with a strong interest in **computer vision, deep learning, and real-world problem solving**.  
+This project — **Bangladeshi Snake Recognizer** — reflects my passion for applying AI to address local challenges, such as **identifying venomous and non-venomous snakes in Bangladesh** to promote awareness and safety.  
 
--   [Email](shakhawat430007@gmail.com)
+Key highlights from this project:  
+- Built a **custom dataset** of 17 snake species (4,000+ images)  
+- Performed **data cleaning and preparation** for model training  
+- Trained multiple CNN models (**ResNet34, EfficientNet-B0, ResNet50**)  
+- Achieved **~88% accuracy** with ResNet50  
+- Deployed the model on **Hugging Face Spaces** with a **Gradio-powered interface**  
+- Integrated a **web-based UI** via GitHub Pages for easy public access  
 
-
-
-
-
+📧 **Email:** [shakhawat430007@gmail.com](mailto:shakhawat430007@gmail.com) 
