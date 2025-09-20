@@ -20,6 +20,24 @@ A machine learning project to recognize **17 common snake species in Bangladesh*
 
 ---
 
+## 📑 Table of Contents
+
+1. [📂 Data Collection](#-1-data-collection)  
+2. [📊 Data Preparation](#-2-data-preparation)  
+3. [🧹 Dataset Cleaning](#-3-dataset-cleaning)  
+4. [🏋️ Training the Snake Classifier](#-4-training-the-snake-classifier)  
+   - [ResNet34](#41-resnet34)  
+   - [EfficientNet-B0](#42-efficientnet-b0)  
+   - [ResNet50](#43-resnet50)  
+   - [Summary](#-summary-of-model-performance)  
+5. [🚀 Deployment – Hugging Face & Gradio](#-5-deployment--hugging-face--gradio)  
+6. [🌐 API Integration – GitHub Pages](#-6-api-integration--github-pages)  
+7. [📜 License](#-license)  
+8. [✅ Overall Summary](#-overall-summary)  
+9. [👨‍💻 About the Author](#about-the-author)
+
+---
+
 ## 📂 1. Data Collection
 
 - Images were collected using **Bing Image Crawler** (`icrawler` library).  
