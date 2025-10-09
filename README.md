@@ -1,4 +1,4 @@
-<div align="center">
+<!-- <div align="center">
 
 # 🐍 Bangladeshi Snake Recognizer
 
@@ -270,4 +270,245 @@ Key highlights from this project:
 - Deployed the model on **Hugging Face Spaces** with a **Gradio-powered interface**  
 - Integrated a **web-based UI** via GitHub Pages for easy public access  
 
+📧 **Email:** [shakhawat430007@gmail.com](mailto:shakhawat430007@gmail.com)  -->
+
+
+
+<div align="center">
+
+# 🐍 Bangladeshi Snake Recognizer
+
+
+<p>
+  <img src="https://img.shields.io/badge/Project%20Status-Completed-green?style=flat-square">
+  <img src="https://img.shields.io/badge/Python-3.12.11-blue?style=flat-square">
+  <img src="https://img.shields.io/badge/FastAI-2.8.4-orange?style=flat-square">
+  <img src="https://img.shields.io/badge/Gradio-3.50.0-red?style=flat-square">
+  <a href="https://huggingface.co/spaces/Rafix007/Bangladeshi-Snake-Recognizer" target="_blank">
+    <img src="https://img.shields.io/badge/HuggingFace-Hosted-purple?style=flat-square">
+  </a>
+  <img src="https://img.shields.io/badge/Colab-GPU-lightgrey?style=flat-square">
+</p>
+
+</div>
+
+A machine learning project to recognize **17 common snake species in Bangladesh** from images. The project includes data collection, cleaning, model training, deployment, and API integration.
+
+---
+
+## 📑 Table of Contents
+
+1. [📂 Data Collection](#-1-data-collection)  
+2. [📊 Data Preparation](#-2-data-preparation)  
+3. [🧹 Dataset Cleaning](#-3-dataset-cleaning)  
+4. [🏋️ Training the Snake Classifier](#%EF%B8%8F-4-training-the-snake-classifier)
+   - [ResNet34](#41-resnet34)  
+   - [EfficientNet-B0](#42-efficientnet-b0)  
+   - [ResNet50](#43-resnet50)  
+   - [Summary](#-summary-of-model-performance)  
+5. [🚀 Deployment – Hugging Face & Gradio](#-5-deployment--hugging-face--gradio)  
+6. [🌐 API Integration – GitHub Pages](#-6-api-integration--github-pages)  
+7. [📜 License](#-license)  
+8. [✅ Overall Summary](#-overall-summary)  
+9. [👨‍💻 About the Author](#about-the-author)
+
+---
+
+## 📂 1. Data Collection
+
+- Images were collected using **Bing Image Crawler** (`icrawler` library).  
+- Each snake species has its own folder under `data/`.  
+- Only `.jpg`, `.jpeg`, and `.png` images were downloaded.
+
+ 
+**Snake Species Details:**
+
+| No. | English Name            | বাংলা নাম          | Type            |
+|-----|-------------------------|-------------------|-----------------|
+| 1   | Spectacled Cobra        | গোখরা             | Venomous        |
+| 2   | Monocled Cobra          | চশমা গোখরা        | Venomous        |
+| 3   | King Cobra              | রাজ গোখরা         | Venomous        |
+| 4   | Common Krait            | কালাই সাপ         | Venomous        |
+| 5   | Banded Krait            | ব্যান্ডেড ক্রাইট  | Venomous        |
+| 6   | Russell's Viper         | চন্দ্রবোড়া        | Venomous        |
+| 7   | Saw-scaled Viper        | একিস ভাইপার      | Venomous        |
+| 8   | Green Pit Viper         | সবুজ পিট ভাইপার   | Venomous        |
+| 9   | Beaked Sea Snake        | সমুদ্র সাপ        | Venomous        |
+| 10  | Yellow-lipped Sea Krait | সমুদ্র ক্রাইট     | Venomous        |
+| 11  | Indian Rock Python      | আজগর              | Non-Venomous    |
+| 12  | Rat Snake               | দাড়াশ             | Non-Venomous    |
+| 13  | Checkered Keelback      | ধামন              | Non-Venomous    |
+| 14  | Common Wolf Snake       | নেকড়ে সাপ         | Non-Venomous    |
+| 15  | Green Trinket Snake     | সবুজ সাপ          | Non-Venomous    |
+| 16  | Bronzeback Tree Snake   | গাছে ওঠা সাপ     | Non-Venomous    |
+| 17  | Common Kukri Snake      | কুক্রি সাপ        | Non-Venomous    |
+
+**Images per species before cleaning:**
+
+| Species                   | Images |
+|----------------------------|--------|
+| Spectacled Cobra           | 297    |
+| Monocled Cobra             | 244    |
+| King Cobra                 | 253    |
+| Common Krait               | 232    |
+| Banded Krait               | 229    |
+| Russell's Viper            | 298    |
+| Saw-scaled Viper           | 237    |
+| Green Pit Viper            | 253    |
+| Beaked Sea Snake           | 179    |
+| Yellow-lipped Sea Krait    | 252    |
+| Indian Rock Python         | 265    |
+| Rat Snake                  | 207    |
+| Checkered Keelback         | 250    |
+| Common Wolf Snake          | 217    |
+| Green Trinket Snake        | 222    |
+| Bronzeback Tree Snake      | 282    |
+| Common Kukri Snake         | 227    |
+
+✅ **Total images downloaded:** 4144  
+✅ **Folders created:** 17  
+
+---
+
+## 📊 2. Data Preparation
+
+We used **FastAI** to prepare the dataset for training:
+
+- Images loaded recursively from folders.  
+- Labels automatically assigned from folder names.  
+- Split into **90% training** and **10% validation** sets.  
+- Resized to **128x128 pixels** for faster training.  
+
+The prepared dataset can be saved for later use.  
+
+---
+
+## 🧹 3. Dataset Cleaning
+
+Some downloaded images were irrelevant or incorrectly labeled (cartoons, duplicates, text-only, wrong species). Cleaning steps:
+
+- Deleted irrelevant images  
+- Moved mislabeled images to the correct folders  
+
+✅ **Cleaned dataset size:** 3968 images  
+
+**Images per species after cleaning (approx.):**
+
+| Species                   | Images |
+|----------------------------|--------|
+| Spectacled Cobra           | 286    |
+| Monocled Cobra             | 235    |
+| King Cobra                 | 244    |
+| Common Krait               | 224    |
+| Banded Krait               | 221    |
+| Russell's Viper            | 288    |
+| Saw-scaled Viper           | 229    |
+| Green Pit Viper            | 244    |
+| Beaked Sea Snake           | 173    |
+| Yellow-lipped Sea Krait    | 243    |
+| Indian Rock Python         | 256    |
+| Rat Snake                  | 200    |
+| Checkered Keelback         | 242    |
+| Common Wolf Snake          | 210    |
+| Green Trinket Snake        | 215    |
+| Bronzeback Tree Snake      | 273    |
+| Common Kukri Snake         | 219    |
+
+**✅ Total Images After Cleaning:** 3968
+
+The dataset is now **clean, balanced, and ready for training**.
+
+---
+
+## 🏋️ 4. Training the Snake Classifier
+
+We trained three models using **FastAI** on **Google Colab with GPU**: **ResNet34**, **EfficientNet-B0**, and **ResNet50**.
+
+### 4.1 ResNet34
+- Achieved **~65% accuracy** after 5 epochs.
+
+### 4.2 EfficientNet-B0
+- Achieved **~76% accuracy** after 10 epochs.
+
+### 4.3 ResNet50
+- Achieved **~88% accuracy** after 10 epochs, the best performance among all models.
+
+### 🔍 Summary of Model Performance
+
+| Model           | Best Accuracy | Notes                     |
+|-----------------|---------------|---------------------------|
+| ResNet34        | 65%           | Quick training            |
+| EfficientNet-B0 | 76%           | Higher accuracy           |
+| ResNet50        | 88%           | Best overall performance  |
+
+---
+
+## 🚀 5. Deployment – Hugging Face & Gradio
+
+- Deployed **ResNet50** using **Gradio** for a web interface.  
+- Users upload images and get predictions in **English and Bangla**.  
+
+**Hugging Face Spaces URL:**  
+[Bangladeshi Snake Recognizer](https://huggingface.co/spaces/Rafix007/Bangladeshi-Snake-Recognizer_02)  
+
+### 🖼 Example Prediction
+
+![Example Prediction](docs/assets/images/prediction.png) 
+*Prediction interface showing the detected snake species.*
+
+**Features:**  
+
+- Upload any snake image for prediction  
+- Supports all 17 species  
+- Quick, accurate results using **ResNet50**  
+
+**Tech Stack:** FastAI / PyTorch, Gradio, Colab GPU, Hugging Face Spaces
+
+---
+
+## 🌐 6. API Integration – GitHub Pages
+
+- A **front-end web interface** hosted on **GitHub Pages** interacts with the Gradio model API.  
+- Users can upload images from the browser, and the API returns predictions.
+
+
+![github pages](docs/assets/images/git_pages.png)
+
+**Live GitHub Pages URL:**
+
+[Bangladeshi Snake Identifier](https://rafixyz007.github.io/bangladeshi-snake-identifier/)  
+
+---
+
+## 📜 License
+
+This project is licensed under the **Apache License 2.0** – see the [LICENSE](LICENSE) file for details.
+
+---
+
+## ✅ Overall Summary
+
+1. Data collected → 4144 images  
+2. Cleaned dataset → 3968 images  
+3. Trained 3 models → ResNet50 achieved **87–88% accuracy**  
+4. Deployed using Gradio → Hugging Face Spaces public URL  
+5. Integrated with **GitHub Pages** for browser-based interaction  
+
+---
+
+## About the Author
+**Md. Shakhawat Hossain**  
+
+I am a Machine Learning and Data Science enthusiast with a strong interest in **computer vision, deep learning, and real-world problem solving**.  
+This project — **Bangladeshi Snake Recognizer** — reflects my passion for applying AI to address local challenges, such as **identifying venomous and non-venomous snakes in Bangladesh** to promote awareness and safety.  
+
+Key highlights from this project:  
+- Built a **custom dataset** of 17 snake species (4,000+ images)  
+- Performed **data cleaning and preparation** for model training  
+- Trained multiple CNN models (**ResNet34, EfficientNet-B0, ResNet50**)  
+- Achieved **~88% accuracy** with ResNet50  
+- Deployed the model on **Hugging Face Spaces** with a **Gradio-powered interface**  
+- Integrated a **web-based UI** via GitHub Pages for easy public access  
+
 📧 **Email:** [shakhawat430007@gmail.com](mailto:shakhawat430007@gmail.com) 
+
