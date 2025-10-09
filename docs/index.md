@@ -3,7 +3,7 @@ title: Home
 layout: page
 ---
 
-<!-- Navigation Bar -->
+<!-- Navigation Bar
 <div style="
   position: fixed;
   top: 0;
@@ -31,7 +31,7 @@ layout: page
 </div>
 
 <!-- Add spacing to prevent content from hiding behind navbar -->
-<div style="height:60px;"></div>
+<!-- <div style="height:60px;"></div> --> -->
 
 
 # 🐍 Bangladeshi Snake Identifier
