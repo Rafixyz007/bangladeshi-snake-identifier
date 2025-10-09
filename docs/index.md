@@ -1,3 +1,8 @@
+---
+title: Home
+layout: page
+---
+
 <!-- Navigation Bar -->
 <div style="
   position: fixed;
@@ -28,12 +33,6 @@
 <!-- Add spacing to prevent content from hiding behind navbar -->
 <div style="height:60px;"></div>
 
-
-
----
-title: Home
-layout: page
----
 
 # 🐍 Bangladeshi Snake Identifier
 
