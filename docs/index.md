@@ -10,17 +10,7 @@
   text-align: center;
   z-index: 1000;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-">
-  <a href="index.md" style="
-    margin: 0 15px;
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 1.1em;
-    transition: 0.3s;
-  " onmouseover="this.style.color='#4CAF50'" onmouseout="this.style.color='#fff'">
-    🏠 Home
-  </a>
+"
 
   <a href="bangladeshi_snake_recognizer.html" style="
     margin: 0 15px;
@@ -33,16 +23,6 @@
     🐍 Snake Recognizer
   </a>
 
-  <a href="about.html" style="
-    margin: 0 15px;
-    color: #fff;
-    font-weight: bold;
-    text-decoration: none;
-    font-size: 1.1em;
-    transition: 0.3s;
-  " onmouseover="this.style.color='#4CAF50'" onmouseout="this.style.color='#fff'">
-    ℹ️ About
-  </a>
 </div>
 
 <!-- Add spacing to prevent content from hiding behind navbar -->
