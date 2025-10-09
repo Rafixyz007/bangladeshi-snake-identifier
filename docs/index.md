@@ -1,3 +1,54 @@
+<!-- Navigation Bar -->
+<div style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  padding: 10px 0;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+">
+  <a href="index.md" style="
+    margin: 0 15px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: 0.3s;
+  " onmouseover="this.style.color='#4CAF50'" onmouseout="this.style.color='#fff'">
+    🏠 Home
+  </a>
+
+  <a href="bangladeshi_snake_recognizer.html" style="
+    margin: 0 15px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: 0.3s;
+  " onmouseover="this.style.color='#4CAF50'" onmouseout="this.style.color='#fff'">
+    🐍 Snake Recognizer
+  </a>
+
+  <a href="about.html" style="
+    margin: 0 15px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: 0.3s;
+  " onmouseover="this.style.color='#4CAF50'" onmouseout="this.style.color='#fff'">
+    ℹ️ About
+  </a>
+</div>
+
+<!-- Add spacing to prevent content from hiding behind navbar -->
+<div style="height:60px;"></div>
+
+
 ---
 title: Home
 layout: page
