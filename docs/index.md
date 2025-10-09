@@ -10,7 +10,7 @@
   text-align: center;
   z-index: 1000;
   box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-"
+">
 
   <a href="bangladeshi_snake_recognizer.html" style="
     margin: 0 15px;
@@ -27,6 +27,7 @@
 
 <!-- Add spacing to prevent content from hiding behind navbar -->
 <div style="height:60px;"></div>
+
 
 
 ---
